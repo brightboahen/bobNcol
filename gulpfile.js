@@ -11,7 +11,7 @@ var gulp = require('gulp'),
     cache = require('gulp-cache'),
     cssnano = require('gulp-cssnano'),
     del = require('del'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence').use(gulp);
 
 gulp.task('browserSync', function(){
     browserSync.init({
@@ -57,11 +57,12 @@ gulp.task('clean', function(){
     return del.sync('build');
 });
 
-gulp.task('build',['clean', 'sass','useref'], function(){
+gulp.task('build', function(callback){
     console.log('building files');
+    runSequence(['clean','sass','useref'], callback);
 });
 
 gulp.task('default', function(callback){
-    runSequence(['sass,browserSync, watch'], callback)
+    runSequence(['sass','browserSync', 'watch'], callback)
 });
 
