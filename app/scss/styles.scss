@@ -83,3 +83,13 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+
+/*Custom styling for hog roast*/
+.hog_navbar{
+  background-image: url("../images/wood_patt1.jpg");
+  background-size: unset;
+}
+.hog_jumbo{
+  background-image: url("../images/hog1.jpg");
+  background-size: cover;
+}
